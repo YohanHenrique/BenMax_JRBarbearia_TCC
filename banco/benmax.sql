@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 18-Dez-2019 às 12:02
--- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.3.2
+-- Host: localhost:3306
+-- Tempo de geração: 11-Abr-2022 às 12:01
+-- Versão do servidor: 8.0.28-0ubuntu0.20.04.3
+-- versão do PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `benmax`
+-- Banco de dados: `benmax`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `avaliacoes` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `foto` varchar(40) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(86) NOT NULL,
@@ -44,17 +44,8 @@ CREATE TABLE `avaliacoes` (
 --
 
 INSERT INTO `avaliacoes` (`id`, `foto`, `nome`, `email`, `comentario`, `created`, `visivel`, `titulo_img`) VALUES
-(4, '26_img', 'Jorge', 'client@test', 'uau legal', '2019-12-08 02:01:46', '0', ''),
-(5, '30_img', 'Benmaximiliano', 'ben@cli', 'zafeagerhyerygeryg', '2019-12-10 02:17:36', '0', ''),
-(6, '30_img', 'Benmaximiliano', 'ben@cli', 'agaegaegaeg', '2019-12-10 02:19:37', '0', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'),
-(7, '30_img', 'Benmaximiliano', 'ben@cli', 'rrgewrger', '2019-12-10 02:21:04', '0', 'zxzxzxxzzxzxzxxzzxzx'),
-(8, '30_img', 'Benmaximiliano', 'ben@cli', 'thjrtjurtuj', '2019-12-10 02:22:21', '0', 'zaaazazzazaz'),
-(9, '30_img', 'Benmaximiliano', 'ben@cli', 'rhwhetyweryt', '2019-12-10 02:23:22', '0', 'zxzxzxzxzxzxzxzxzxzxzxzx'),
-(10, '30_img', 'Benmaximiliano', 'ben@cli', 'dsgshwh', '2019-12-10 02:24:51', '1', 'zxzzxzxzxxzxzzxxz'),
-(11, '30_img', 'Benmaximiliano', 'ben@cli', 'asfrwgrwehre', '2019-12-10 02:29:39', '0', 'zxxzzxzxzxzxxz'),
-(12, '30_img', 'Benmaximiliano', 'ben@cli', 'ahgstjurweut4tu', '2019-12-10 02:40:28', '1', 'zarapitongas'),
-(13, '30_img', 'Benmaximiliano', 'ben@cli', 'aegrwhrh', '2019-12-10 02:58:41', '1', 'ZARABATANAMALUCA'),
-(14, '30_img', 'Benmaximiliano', 'ben@cli', 'nossa que bacana', '2019-12-10 03:25:07', '1', '10122019_042231');
+(15, 'primeira_img', 'Heitor Carvalho', 'heitor@gmail.com', 'Fui recentemente a JR Barbearia e me surpreendi, o Barbeiro Junior é um excelente profissional, com toda a certeza voltarei mais vezes!!! ', '2022-04-11 02:32:26', '1', '10042022_233114'),
+(16, 'primeira_img', 'Vitto Campanella', 'vitto@gmail.com', 'Já conhecia a JR Barbearia, não tenho do que reclamar, só tenho elogios a fazer, sempre quando preciso o Junior me atende com a maior prontidão!! ', '2022-04-11 02:36:19', '0', '10042022_233425');
 
 -- --------------------------------------------------------
 
@@ -63,20 +54,13 @@ INSERT INTO `avaliacoes` (`id`, `foto`, `nome`, `email`, `comentario`, `created`
 --
 
 CREATE TABLE `avisos` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `titulo_aviso` varchar(80) NOT NULL,
   `aviso` varchar(120) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_usu` varchar(300) NOT NULL,
   `nome` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `avisos`
---
-
-INSERT INTO `avisos` (`id`, `titulo_aviso`, `aviso`, `created`, `id_usu`, `nome`) VALUES
-(3, 'shfwrsyh', 'ywrwreywry', '2019-12-07 21:28:22', '24', 'benmax');
 
 -- --------------------------------------------------------
 
@@ -85,7 +69,7 @@ INSERT INTO `avisos` (`id`, `titulo_aviso`, `aviso`, `created`, `id_usu`, `nome`
 --
 
 CREATE TABLE `banner` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `titulo` varchar(80) NOT NULL,
   `link` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -105,7 +89,7 @@ INSERT INTO `banner` (`id`, `titulo`, `link`) VALUES
 --
 
 CREATE TABLE `fazemos` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `icone` varchar(85) NOT NULL,
   `titulo` varchar(80) NOT NULL,
   `detalhes` varchar(100) NOT NULL
@@ -128,7 +112,7 @@ INSERT INTO `fazemos` (`id`, `icone`, `titulo`, `detalhes`) VALUES
 --
 
 CREATE TABLE `feitos` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `fnome` varchar(400) NOT NULL,
   `fpreco` varchar(400) NOT NULL,
   `ffeitos` varchar(400) NOT NULL,
@@ -150,7 +134,7 @@ INSERT INTO `feitos` (`id`, `fnome`, `fpreco`, `ffeitos`, `fdata`) VALUES
 --
 
 CREATE TABLE `galeria` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nome` varchar(80) NOT NULL,
   `titulo_img` varchar(50) NOT NULL,
   `id_usu` varchar(300) NOT NULL
@@ -187,7 +171,7 @@ INSERT INTO `galeria` (`id`, `nome`, `titulo_img`, `id_usu`) VALUES
 --
 
 CREATE TABLE `informacoes` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `titulo` varchar(50) NOT NULL,
   `detalhes` varchar(80) NOT NULL,
   `icone` varchar(70) NOT NULL
@@ -209,7 +193,7 @@ INSERT INTO `informacoes` (`id`, `titulo`, `detalhes`, `icone`) VALUES
 --
 
 CREATE TABLE `mensagens_contatos` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nome` varchar(220) NOT NULL,
   `email` varchar(220) NOT NULL,
   `assunto` varchar(220) NOT NULL,
@@ -218,15 +202,6 @@ CREATE TABLE `mensagens_contatos` (
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `mensagens_contatos`
---
-
-INSERT INTO `mensagens_contatos` (`id`, `nome`, `email`, `assunto`, `mensagem`, `created`, `modified`) VALUES
-(5, 'ahfsth', 'srthujrtuhf@rhrejtytj', 'ghjyjtdy', 'jurtutruy', '2019-12-07 14:53:02', NULL),
-(6, 'yryhdfhyerthb', 'auiygf@eajgn', 'grsrtyyr', 'rgknwrhniurjfghyn', '2019-12-10 21:52:20', NULL),
-(7, 'hr', 'hr@g', 'esger', 'yery', '2019-12-10 21:52:51', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -234,7 +209,7 @@ INSERT INTO `mensagens_contatos` (`id`, `nome`, `email`, `assunto`, `mensagem`, 
 --
 
 CREATE TABLE `posts` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nome` varchar(50) NOT NULL,
   `titulo_img` varchar(50) NOT NULL,
   `texto` varchar(800) NOT NULL,
@@ -247,10 +222,9 @@ CREATE TABLE `posts` (
 -- Extraindo dados da tabela `posts`
 --
 
-INSERT INTO `posts` (`id`, `nome`, `titulo_img`, `texto`, `created`, `titulo_postagem`, `id_usu`) VALUES
-(2, 'benmax', '05122019_160944', 'O método de Pigmentação da Barba consiste em aplicar uma tinta na camada mais superficial da pele para obter uma sombra, que irá se misturar aos pelos da barba deixando a barba falhada e rala passar despercebida podendo ser feita nas costeletas e cavanhaque e em qualquer tamanho de falha.', '2019-12-05 15:16:34', 'Como é a Pigmentação da barba?', ''),
-(3, 'Ribamar ribeiro', '07122019_214154', 'tyiujetuhrwtutewuhg', '2019-12-07 21:37:02', 'Lectospiros', '42'),
-(4, 'benmax', '09122019_235916', 'kuhvbhkygtv', '2019-12-09 22:59:40', 'tgfcdtdr', '24');
+INSERT INTO `posts` (`id`, `nome`, `titulo_img`, `texto`, `titulo_postagem`, `id_usu`) VALUES
+(2, 'benmax', '05122019_160944', 'O método de Pigmentação da Barba consiste em aplicar uma tinta na camada mais superficial da pele para obter uma sombra, que irá se misturar aos pelos da barba deixando a barba falhada e rala passar despercebida podendo ser feita nas costeletas e cavanhaque e em qualquer tamanho de falha.', 'Como é a Pigmentação da barba?', ''),
+(3, 'benmax', '07122019_214154', 'O que você precisa nem sempre está em um corte do passado, experimente um corte novo, um corte casual moderno, ao chegar na barbearia pergunte ao Barbeiro quais os cortes tendências e o que ele recomenda para o seu cabelo', 'Dê sempre preferência por um corte da moda!', '42');
 
 -- --------------------------------------------------------
 
@@ -259,7 +233,7 @@ INSERT INTO `posts` (`id`, `nome`, `titulo_img`, `texto`, `created`, `titulo_pos
 --
 
 CREATE TABLE `produtos` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nome` varchar(60) NOT NULL,
   `preco` varchar(20) NOT NULL,
   `descricao` varchar(80) NOT NULL,
@@ -282,7 +256,7 @@ INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `titulo_img`) VALUES
 --
 
 CREATE TABLE `servicos` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nome` varchar(100) NOT NULL,
   `detalhe` varchar(200) NOT NULL,
   `preco` varchar(50) NOT NULL,
@@ -295,14 +269,12 @@ CREATE TABLE `servicos` (
 --
 
 INSERT INTO `servicos` (`id`, `nome`, `detalhe`, `preco`, `titulo_img`, `feito`) VALUES
-(1, 'Corte De Cabelo Masculino', 'Corte de cabelo de qualidade e seguindo as especificações do cliente', '15.00', '', '5'),
-(2, 'Luzes', 'Aplicação de luzes no cabelo', '30.00', '', '5'),
+(1, 'Corte De Cabelo Masculino', 'Corte de cabelo de qualidade e seguindo as especificações do cliente', '15.00', '10042022_232104', '5'),
+(2, 'Luzes', 'Aplicação de luzes no cabelo', '30.00', '10042022_232148', '5'),
 (3, 'Relaxamento', 'Alisamento químico dos cabelos', '30.00', '', '0'),
-(4, 'Modelação e desenho da barba', 'Modelação e desenho da barba apartir do gosto do cliente.', '15.00', '', '5'),
+(4, 'Modelação e desenho da barba', 'Modelação e desenho da barba a partir do gosto do cliente.', '15.00', '10042022_231551', '5'),
 (5, 'Pigmentação da Barba', 'Aplicação de pigmento para dar vida a barba', '20.00', '', '30'),
-(6, 'Tintura na barba', 'Pintura da barba para tornar a barba mais bonita', '30.00', '12122019_195602', '25'),
-(7, 'tjur', 'urewutwr', '52.00', '12122019_194739', '0'),
-(8, 'rhfsarh', 'reherh', '40.00', '12122019_212523', '0');
+(6, 'Tintura na barba', 'Pintura da barba para tornar a barba mais bonita', '30.00', '12122019_195602', '25');
 
 -- --------------------------------------------------------
 
@@ -311,14 +283,14 @@ INSERT INTO `servicos` (`id`, `nome`, `detalhe`, `preco`, `titulo_img`, `feito`)
 --
 
 CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `titulo_img` varchar(120) NOT NULL,
   `nome` varchar(128) NOT NULL,
   `email` varchar(256) NOT NULL,
   `telefone` varchar(30) DEFAULT NULL,
   `senha` varchar(50) NOT NULL,
-  `nivel` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nivel` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -327,172 +299,160 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id`, `titulo_img`, `nome`, `email`, `telefone`, `senha`, `nivel`) VALUES
 (20, '20_img', 'yohan henrique', 'yohan899@gmail.com', '11967669675', '202cb962ac59075b964b07152d234b70', 1),
 (24, '24_img', 'benmax', 'benmax@adm', '1140028922', '202cb962ac59075b964b07152d234b70', 1),
-(25, '25_img', 'pablo', 'pablo777@gmail.com', '1140028922', 'd41d8cd98f00b204e9800998ecf8427e', 2),
-(26, '26_img', 'Jorge', 'client@test', '55 4003-8934', 'd41d8cd98f00b204e9800998ecf8427e', 0),
-(28, '28_img', 'Marcio', 'testador@testante', '400289877', 'd41d8cd98f00b204e9800998ecf8427e', 2),
-(30, '30_img', 'Benmaximiliano', 'ben@cli', '84894894', 'd41d8cd98f00b204e9800998ecf8427e', 2),
-(31, '31_img', 'Claudio Silva', 'claudinho@client', '55 4006-8499', 'd41d8cd98f00b204e9800998ecf8427e', 2),
-(32, '32_img', 'Claudinei', 'claudinei@client', '55 4006-8779', 'd41d8cd98f00b204e9800998ecf8427e', 2),
-(33, '33_img', 'MARCINHO', 'viva@ben', '84685494', 'd41d8cd98f00b204e9800998ecf8427e', 1),
-(34, '34_img', 'meridiano', 'gren@bem', '654851684', 'd41d8cd98f00b204e9800998ecf8427e', 2),
-(35, '35_img', 'fausto silva', 'faust@oloko', '6848946894', '202cb962ac59075b964b07152d234b70', 3),
-(38, 'primeira_img', 'Pablo da Silva -BenMax', 'pablo98961@gmail.com', '11 96780-5427', '202cb962ac59075b964b07152d234b70', 0),
-(39, 'primeira_img', 'Reginaldo', 'prado@din', '73158763', 'd41d8cd98f00b204e9800998ecf8427e', 0),
-(40, 'primeira_img', 'reginaldo pereira', 'ovo@uau', '5456846548', '202cb962ac59075b964b07152d234b70', 2),
-(41, 'primeira_img', 'Reginaldin marcolino', 'marco@lino', '35236443', '202cb962ac59075b964b07152d234b70', 2),
-(42, 'primeira_img', 'Ribamar ribeiro', 'rib@rob', '7784789485', '202cb962ac59075b964b07152d234b70', 0);
+(43, 'primeira_img', 'Heitor Carvalho', 'heitor@gmail.com', '11950112345', 'dbc4d84bfcfe2284ba11beffb853a8c4', 2),
+(44, '44_img', 'Vitto Campanella', 'vitto@gmail.com', '11911256700', 'd41d8cd98f00b204e9800998ecf8427e', 2);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `avaliacoes`
+-- Índices para tabela `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `avisos`
+-- Índices para tabela `avisos`
 --
 ALTER TABLE `avisos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `banner`
+-- Índices para tabela `banner`
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `fazemos`
+-- Índices para tabela `fazemos`
 --
 ALTER TABLE `fazemos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `feitos`
+-- Índices para tabela `feitos`
 --
 ALTER TABLE `feitos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `galeria`
+-- Índices para tabela `galeria`
 --
 ALTER TABLE `galeria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `informacoes`
+-- Índices para tabela `informacoes`
 --
 ALTER TABLE `informacoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `mensagens_contatos`
+-- Índices para tabela `mensagens_contatos`
 --
 ALTER TABLE `mensagens_contatos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `posts`
+-- Índices para tabela `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `produtos`
+-- Índices para tabela `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `servicos`
+-- Índices para tabela `servicos`
 --
 ALTER TABLE `servicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuario`
+-- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `avaliacoes`
+-- AUTO_INCREMENT de tabela `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `avisos`
+-- AUTO_INCREMENT de tabela `avisos`
 --
 ALTER TABLE `avisos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `banner`
+-- AUTO_INCREMENT de tabela `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `fazemos`
+-- AUTO_INCREMENT de tabela `fazemos`
 --
 ALTER TABLE `fazemos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `feitos`
+-- AUTO_INCREMENT de tabela `feitos`
 --
 ALTER TABLE `feitos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `galeria`
+-- AUTO_INCREMENT de tabela `galeria`
 --
 ALTER TABLE `galeria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `informacoes`
+-- AUTO_INCREMENT de tabela `informacoes`
 --
 ALTER TABLE `informacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `mensagens_contatos`
+-- AUTO_INCREMENT de tabela `mensagens_contatos`
 --
 ALTER TABLE `mensagens_contatos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `produtos`
+-- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `servicos`
+-- AUTO_INCREMENT de tabela `servicos`
 --
 ALTER TABLE `servicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
