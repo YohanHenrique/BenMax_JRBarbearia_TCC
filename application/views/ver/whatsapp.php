@@ -1,0 +1,1 @@
+<div><a href="https://api.whatsapp.com/send?phone=5562994524747&text=Queria uma informação sobre um produto" target="_blank"><img  class="whatsapp" src="https://3.bp.blogspot.com/-ckiKOobNJy8/XRIGyySxDII/AAAAAAAACv0/09JFzT4vlcUYHq19lu-pQfWjYq6dyKYzQCLcBGAs/s1600/contatowhats.png" /></a></div>
